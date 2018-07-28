@@ -2,7 +2,18 @@ package Logic;
 
 public class SectionTwo {
 
-    public static int getSkillScore(String[] args) {
+    public static int[] getSkillScore(String[] args) {
+        int readingScore = compute(new String[]{args[0], args[1], args[2]});
+        int writingScore = compute(new String[]{args[3], args[4], args[5]});
+        int studyingScore = compute(new String[]{args[6], args[7], args[8]});
+        int memorizingScore = compute(new String[]{args[9], args[10], args[11]});
+        int preparingScore = compute(new String[]{args[12], args[13], args[14]});
+        int timeManagementScore = compute(new String[]{args[15], args[16], args[17]});
+
+        return new int[]{readingScore, writingScore, studyingScore, memorizingScore, preparingScore, timeManagementScore};
+    }
+
+    private static int compute(String[] args){
         int score = 0;
         for (String str : args) {
             if(str.equals("O")) {

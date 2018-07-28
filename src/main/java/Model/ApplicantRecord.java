@@ -21,6 +21,7 @@ public class ApplicantRecord {
     // Section 2
     private int reading;
     private int writing;
+    private int studying;
     private int memorizing;
     private int preparing;
     private int timeManagement;
@@ -32,7 +33,7 @@ public class ApplicantRecord {
     // Section 4
     private String personalityWriteup;
 
-    private ApplicantRecord(String id, String firstName, String lastName, String gender, String dateOfBirth, String pincode, String clazz, String section, String mediumOfInstruction, String institutionName, String institutionCategory, String profession, int reading, int writing, int memorizing, int preparing, int timeManagement, int emotionalQuotient, String emotionalQuotientWriteup, String personalityWriteup) {
+    private ApplicantRecord(String id, String firstName, String lastName, String gender, String dateOfBirth, String pincode, String clazz, String section, String mediumOfInstruction, String institutionName, String institutionCategory, String profession, int reading, int writing, int studying, int memorizing, int preparing, int timeManagement, int emotionalQuotient, String emotionalQuotientWriteup, String personalityWriteup) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -47,12 +48,97 @@ public class ApplicantRecord {
         this.profession = profession;
         this.reading = reading;
         this.writing = writing;
+        this.studying = studying;
         this.memorizing = memorizing;
         this.preparing = preparing;
         this.timeManagement = timeManagement;
         this.emotionalQuotient = emotionalQuotient;
         this.emotionalQuotientWriteup = emotionalQuotientWriteup;
         this.personalityWriteup = personalityWriteup;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public String getPincode() {
+        return pincode;
+    }
+
+    public String getClazz() {
+        return clazz;
+    }
+
+    public String getSection() {
+        return section;
+    }
+
+    public String getMediumOfInstruction() {
+        return mediumOfInstruction;
+    }
+
+    public String getInstitutionName() {
+        return institutionName;
+    }
+
+    public String getInstitutionCategory() {
+        return institutionCategory;
+    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public int getReading() {
+        return reading;
+    }
+
+    public int getStudying() {
+        return studying;
+    }
+
+    public int getWriting() {
+        return writing;
+    }
+
+    public int getMemorizing() {
+        return memorizing;
+    }
+
+    public int getPreparing() {
+        return preparing;
+    }
+
+    public int getTimeManagement() {
+        return timeManagement;
+    }
+
+    public int getEmotionalQuotient() {
+        return emotionalQuotient;
+    }
+
+    public String getEmotionalQuotientWriteup() {
+        return emotionalQuotientWriteup;
+    }
+
+    public String getPersonalityWriteup() {
+        return personalityWriteup;
     }
 
     @Override
@@ -72,6 +158,7 @@ public class ApplicantRecord {
                 ", professions=" + profession +
                 ", reading=" + reading +
                 ", writing=" + writing +
+                ", stdying=" + studying +
                 ", memorizing=" + memorizing +
                 ", preparing=" + preparing +
                 ", timeManagement=" + timeManagement +
@@ -103,6 +190,7 @@ public class ApplicantRecord {
         // Section 2
         private int reading;
         private int writing;
+        private int studying;
         private int memorizing;
         private int preparing;
         private int timeManagement;
@@ -137,9 +225,10 @@ public class ApplicantRecord {
         public ApplicantRecordBuilder withSkillScores(int[] skillScores){
             this.reading = skillScores[0];
             this.writing = skillScores[1];
-            this.memorizing = skillScores[2];
-            this.preparing = skillScores[3];
-            this.timeManagement = skillScores[4];
+            this.studying = skillScores[2];
+            this.memorizing = skillScores[3];
+            this.preparing = skillScores[4];
+            this.timeManagement = skillScores[5];
             return this;
         }
 
@@ -155,7 +244,7 @@ public class ApplicantRecord {
         }
 
         public ApplicantRecord build(){
-            return new ApplicantRecord(id, firstName, lastName, gender, dateOfBirth, pincode, clazz, section, mediumOfInstruction, institutionName, institutionCategory, profession, reading, writing, memorizing, preparing, timeManagement, emotionalQuotient, emotionalQuotientWriteup, personalityWriteup);
+            return new ApplicantRecord(id, firstName, lastName, gender, dateOfBirth, pincode, clazz, section, mediumOfInstruction, institutionName, institutionCategory, profession, reading, writing, studying, memorizing, preparing, timeManagement, emotionalQuotient, emotionalQuotientWriteup, personalityWriteup);
         }
 
     }
