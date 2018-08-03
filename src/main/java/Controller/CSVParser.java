@@ -8,12 +8,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Queue;
 
 public class CSVParser {
-    public static List<ApplicantInput> getApplicantInputs(String fileName){
-        List<ApplicantInput> applicantInputs = new ArrayList<>();
+
+    public static void getApplicantInputs(String fileName, Queue<ApplicantInput> queue){
 
         try {
 
@@ -100,9 +99,7 @@ public class CSVParser {
                         .withSectionFourInput(record.get("S4-1"))
                         .build();
 
-                System.out.println(applicantInput);
-
-                applicantInputs.add(applicantInput);
+                queue.add(applicantInput);
             }
 
         } catch (FileNotFoundException e) {
@@ -110,6 +107,5 @@ public class CSVParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return  applicantInputs;
     }
 }
