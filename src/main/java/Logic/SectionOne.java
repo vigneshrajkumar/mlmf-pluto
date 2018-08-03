@@ -1,6 +1,14 @@
 package Logic;
 
 public class SectionOne {
+
+    public static boolean validate(String option) {
+        if(option.equals("1") || option.equals("2") || option.equals("3") || option.equals("4") || option.equals("5") || option.equals("6") || option.equals("7")) {
+            return true;
+        }
+        return false;
+    }
+
     public static String getProfession(int choice){
         switch (choice) {
             case 1: return "Agriculture, Food & Natural Resources\n" +

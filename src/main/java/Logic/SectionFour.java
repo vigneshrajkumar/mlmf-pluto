@@ -2,6 +2,14 @@ package Logic;
 
 public class SectionFour {
 
+    public static boolean validate(String option) {
+
+        if(option.equals("1") || option.equals("2") || option.equals("3") || option.equals("4") || option.equals("5") || option.equals("6") || option.equals("7") || option.equals("8") || option.equals("9")) {
+            return true;
+        }
+        return false;
+    }
+
     public static String getPersonalityWriteup(int option) {
 
         switch (option) {

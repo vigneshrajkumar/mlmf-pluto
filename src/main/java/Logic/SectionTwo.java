@@ -2,6 +2,15 @@ package Logic;
 
 public class SectionTwo {
 
+    public static boolean validate(String[] args) {
+        for (String str : args) {
+            if(!(str.equals("A") || str.equals("O") || str.equals("R"))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static int[] getSkillScore(String[] args) {
         int readingScore = compute(new String[]{args[0], args[1], args[2]});
         int writingScore = compute(new String[]{args[3], args[4], args[5]});

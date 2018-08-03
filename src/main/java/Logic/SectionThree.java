@@ -1,6 +1,17 @@
 package Logic;
 
 public class SectionThree {
+
+    public static boolean validate(String[] args) {
+
+        for (String str : args) {
+            if(!(str.equals("Y") || str.equals("N"))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public static int getEmotionalQuotient(String[] args) {
         int score = 0;
 

@@ -48,14 +48,12 @@ public class Home extends Application {
         primaryStage.show();
     }
 
-
     public void validateCSV(ActionEvent actionEvent) {
 
         FileChooser fc = new FileChooser();
         fc.setTitle("Select the source CSV file");
         File file = fc.showOpenDialog( (Stage) vValidateCSV.getScene().getWindow());
-
-        alert(Alert.AlertType.INFORMATION, "To be implemented", "to be implemented");
+        CSVParser.validateCSV(file.getAbsolutePath());
     }
 
     public void generateReports(ActionEvent actionEvent) {
@@ -65,6 +63,9 @@ public class Home extends Application {
         fc.setTitle("Select the source CSV file");
         File file = fc.showOpenDialog( (Stage) vGenerateReports.getScene().getWindow());
 
+        // validate file
+        CSVParser.validateCSV(file.getAbsolutePath());
+
         CSVParser.getApplicantInputs(file.getAbsolutePath(), jobQueue);
 
         int recordsCount = jobQueue.size();
@@ -73,7 +74,12 @@ public class Home extends Application {
             ApplicantRecord record = ReportBuilder.generateReport(input);
             PDFGenerator.generatePDF(record);
         }
-        alert(Alert.AlertType.INFORMATION, "Generation Success", "Generated " + recordsCount + " records");
+        // TODO:vr too many file opens. optimise it
+        File f = new File("output");
+
+        String message = "Generated " + recordsCount + " records at " + f.getAbsolutePath();;
+
+        alert(Alert.AlertType.INFORMATION, "Generation Success", message);
     }
 
     private void alert(Alert.AlertType type, String header, String message) {
