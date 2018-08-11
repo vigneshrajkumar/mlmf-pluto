@@ -41,7 +41,7 @@ public class Home extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/home.fxml"));
 
-        Scene newScene = new Scene(root, 280,110);
+        Scene newScene = new Scene(root, 300,180);
         primaryStage.setScene(newScene);
         primaryStage.setTitle("My Life My Future");
         primaryStage.setResizable(false);

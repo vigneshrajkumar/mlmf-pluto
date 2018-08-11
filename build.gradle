@@ -15,6 +15,16 @@ apply plugin: "application"
 
 mainClassName='Controller.Home'
 
+jar {
+    manifest {
+        attributes "Main-Class": "Controller.Home"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 
 
 dependencies {
